@@ -1,8 +1,5 @@
 USE `actividades`;
 
-SELECT * FROM almacenes;
-SELECT * FROM cajas;
-
 -- Ejercicio 1
 SELECT * FROM almacenes;
 
