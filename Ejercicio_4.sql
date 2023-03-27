@@ -1,0 +1,40 @@
+USE `actividades`;
+
+-- Ejercicio 1
+SELECT NOMBRE FROM peliculas;
+
+-- Ejercicio 2
+SELECT CALIFICACIONEDAD FROM peliculas GROUP BY CALIFICACIONEDAD;
+
+-- Ejercicio 3
+SELECT NOMBRE FROM peliculas WHERE CALIFICACIONEDAD IS NULL;
+
+-- Ejercicio 4
+SELECT NOMBRE FROM salas WHERE PELICULA IS NULL;
+
+-- Ejercicio 5
+SELECT salas.CODIGO, salas.NOMBRE, peliculas.NOMBRE, peliculas.CALIFICACIONEDAD FROM salas
+LEFT JOIN peliculas ON peliculas.CODIGO=salas.PELICULA;
+
+-- Ejercicio 6
+SELECT peliculas.CODIGO, peliculas.NOMBRE, peliculas.CALIFICACIONEDAD, salas.NOMBRE
+AS NOMBRE_SALA FROM peliculas
+LEFT JOIN salas ON peliculas.CODIGO=salas.PELICULA;
+
+-- Ejercicio 7
+SELECT NOMBRE FROM peliculas
+WHERE CODIGO NOT IN (SELECT PELICULA FROM salas WHERE PELICULA IS NOT NULL);
+
+-- Ejercicio 8
+INSERT INTO peliculas VALUES
+(10, 'Uno, Dos, Tres','PG');
+
+-- Ejercicio 9
+XSUPDATE peliculas SET CALIFICACIONEDAD='PG-13' WHERE CALIFICACIONEDAD IS NULL;
+
+-- Ejercicio 10
+DELETE FROM salas WHERE PELICULA IN (
+SELECT CODIGO
+FROM peliculas
+WHERE CALIFICACIONEDAD='G'
+);
