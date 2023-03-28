@@ -1,8 +1,5 @@
 USE `actividades`;
 
-SELECT * FROM articulos;
-SELECT * FROM fabricantes;
-
 -- # Mostrar el nombre de los artículos
 -- Ejercicio 1
 SELECT NOMBRE FROM articulos;
